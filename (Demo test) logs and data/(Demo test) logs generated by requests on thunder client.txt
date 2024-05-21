@@ -1,0 +1,144 @@
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/applications
+Method: POST
+Request Headers:
+{
+  "content-length": "25",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "name": "Demo test"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users
+Method: POST
+Request Headers:
+{
+  "content-length": "169",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "email": "test1@example.com",
+  "name": "Jatin Rathore",
+  "password": "code1234",
+  "applicationId": "8ffd9b8d-819e-409f-bd6a-cb6c2143ce84",
+  "initialUser": true
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users/login
+Method: POST
+Request Headers:
+{
+  "content-length": "119",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "email": "test1@example.com",
+  "password": "code1234",
+  "applicationId": "8ffd9b8d-819e-409f-bd6a-cb6c2143ce84"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users
+Method: POST
+Request Headers:
+{
+  "content-length": "144",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "email": "test2@example.com",
+  "name": "Second User",
+  "password": "code1234",
+  "applicationId": "8ffd9b8d-819e-409f-bd6a-cb6c2143ce84"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users/roles
+Method: POST
+Request Headers:
+{
+  "content-length": "106",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "userId": "89fda2bc-9fdc-4537-997f-6e8dc03be813",
+  "roleId": "4cf0c58a-26d7-44cf-b856-4e5f4edae9a3"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users/roles
+Method: POST
+Request Headers:
+{
+  "content-length": "165",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "applicationId": "8ffd9b8d-819e-409f-bd6a-cb6c2143ce84",
+  "userId": "89fda2bc-9fdc-4537-997f-6e8dc03be813",
+  "roleId": "4cf0c58a-26d7-44cf-b856-4e5f4edae9a3"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users/roles
+Method: POST
+Request Headers:
+{
+  "content-length": "106",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkYzUyYzY5LTZlMDMtNDk5NS05MjhjLTdhNGNiOWRlNzc4ZiIsImFwcGxpY2F0aW9uSWQiOiI4ZmZkOWI4ZC04MTllLTQwOWYtYmQ2YS1jYjZjMjE0M2NlODQiLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwic2NvcGVzIjpbInVzZXJzOnJvbGVzOndyaXRlIiwidXNlcnM6cm9sZXM6ZGVsZXRlIiwicm9sZXM6d3JpdGUiLCJwb3N0czp3cml0ZSIsInBvc3RzOnJlYWQiLCJwb3N0OmRlbGV0ZSIsInBvc3Q6ZWRpdC1vd24iXSwiaWF0IjoxNzE2MzE1MjQ1fQ.3V5cfVbUPqOKmqMvaExTgah14Cjaq2Uk1psrkZrkfDQ",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "userId": "89fda2bc-9fdc-4537-997f-6e8dc03be813",
+  "roleId": "4cf0c58a-26d7-44cf-b856-4e5f4edae9a3"
+}
+
+---------------- Running Request: ----------------
+Request Url: http://0.0.0.0:3000/api/users/roles
+Method: POST
+Request Headers:
+{
+  "content-length": "165",
+  "accept-encoding": "gzip, deflate, br",
+  "Accept": "*/*",
+  "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkYzUyYzY5LTZlMDMtNDk5NS05MjhjLTdhNGNiOWRlNzc4ZiIsImFwcGxpY2F0aW9uSWQiOiI4ZmZkOWI4ZC04MTllLTQwOWYtYmQ2YS1jYjZjMjE0M2NlODQiLCJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwic2NvcGVzIjpbInVzZXJzOnJvbGVzOndyaXRlIiwidXNlcnM6cm9sZXM6ZGVsZXRlIiwicm9sZXM6d3JpdGUiLCJwb3N0czp3cml0ZSIsInBvc3RzOnJlYWQiLCJwb3N0OmRlbGV0ZSIsInBvc3Q6ZWRpdC1vd24iXSwiaWF0IjoxNzE2MzE1MjQ1fQ.3V5cfVbUPqOKmqMvaExTgah14Cjaq2Uk1psrkZrkfDQ",
+  "Content-Type": "application/json"
+}
+Request Body:
+{
+  "applicationId": "8ffd9b8d-819e-409f-bd6a-cb6c2143ce84",
+  "userId": "89fda2bc-9fdc-4537-997f-6e8dc03be813",
+  "roleId": "4cf0c58a-26d7-44cf-b856-4e5f4edae9a3"
+}

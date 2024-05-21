@@ -57,7 +57,7 @@ export async function buildServer() {
     requestProperty: "user",
     scopeProperty: "scopes",
     errorHandler: (result, request, reply) => {
-      return reply.send("Not Allowed");
+      return reply.send("Not Authenticated");
      },
     });
 
