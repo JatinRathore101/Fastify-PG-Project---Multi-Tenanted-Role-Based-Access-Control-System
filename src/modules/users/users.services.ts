@@ -1,8 +1,8 @@
-import { InferModel, name } from "drizzle-orm";
+import { InferModel, eq, name } from "drizzle-orm";
 import { applications, users } from "../../db/schema";
 import argon2 from 'argon2'
 import { db } from "../../db";
-
+ 
 export async function createUser(data: InferModel<typeof users,'insert'>) {
     const hashedPassword = await argon2.hash(data.password);
 
@@ -17,4 +17,11 @@ export async function createUser(data: InferModel<typeof users,'insert'>) {
     });
 
     return result[0];    
+}
+
+export async function getUsersByApplication(applicationId:string) {
+
+    const result = await db.select().from(users).where(eq(users.applicationId,applicationId));
+
+    return result;    
 }
