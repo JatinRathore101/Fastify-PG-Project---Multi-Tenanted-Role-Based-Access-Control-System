@@ -1,8 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateUserBody } from "./users.schemas";
+import { CreateUserBody, LoginBody } from "./users.schemas";
 import { SYSTEM_ROLES } from "../../config/permissions";
 import { getRoleByName } from "../roles/roles.services";
-import { assignRoleToUser, createUser, getUsersByApplication } from "./users.services";
+import { assignRoleToUser, createUser, getUserByEmail, getUsersByApplication } from "./users.services";
+import jwt from "jsonwebtoken";
 
 export async function createUserHandler(
     
@@ -15,11 +16,11 @@ export async function createUserHandler(
 
     const {initialUser, ...data} = request.body;
 
-    console.log({initialUser});
+    // console.log({initialUser});
 
     const roleName = initialUser ? SYSTEM_ROLES.SUPER_ADMIN : SYSTEM_ROLES.APPLICATION_USER;
 
-    console.log({roleName});
+    // console.log({roleName});
     
     if(roleName === SYSTEM_ROLES.SUPER_ADMIN){
         const appUsers = await getUsersByApplication(data.applicationId);
@@ -40,7 +41,7 @@ export async function createUserHandler(
         applicationId: data.applicationId,
     });
 
-    console.log({role})
+    // console.log({role})
 
     if(!role){
         return reply.code(404).send({
@@ -48,18 +49,44 @@ export async function createUserHandler(
         });
     }
     
-    // try {
-    //     const user = await createUser(data);
+    try {
+        const user = await createUser(data);
 
-    //     await assignRoleToUser({
-    //         userId: user.id,
-    //         roleId: role.id,
-    //         applicationId: data.applicationId
-    //     });
+        await assignRoleToUser({
+            userId: user.id,
+            roleId: role.id,
+            applicationId: data.applicationId
+        });
 
-    // } catch (error) {
+    } catch (error) {
         
-    // }
+    }
+}
 
+export async function loginHandler(request: FastifyRequest<{Body: LoginBody;}>,reply: FastifyReply) {
+    const {applicationId, email, password} = request.body;
+
+    const user = await getUserByEmail({
+        applicationId,
+        email,
+    });
+    
+    if(!user){
+        return reply.code(400).send({
+            message:'invalid email or password'
+        });
+    }
+
+    // return user;
+    
+    const token = jwt.sign({
+        id: user.id,
+        applicationId,
+        email,
+        scopes: user.permissions
+    },'secret'); // setup proper signing key
+
+    return {token};
 
 }
+
