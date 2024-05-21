@@ -1,9 +1,14 @@
 import { FastifyInstance } from "fastify";
 import { applications } from './../../db/schema';
+import { createApplicationJsonSchema } from "./applications.schemas";
+import { createApplicationHandler } from "./applications.controllers";
 
 export async function applicationRoutes(app: FastifyInstance) {
 
-    app.post('/',{},()=>{});
+    app.post('/',{
+        schema: createApplicationJsonSchema,
+    },
+createApplicationHandler);
     
     app.get('/',()=>{});
     
