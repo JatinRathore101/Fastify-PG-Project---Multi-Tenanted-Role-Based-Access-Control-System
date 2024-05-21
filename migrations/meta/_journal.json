@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1716245223929,
+      "tag": "0000_puzzling_trauma",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1716245358249,
+      "tag": "0001_many_amphibian",
+      "breakpoints": false
+    }
+  ]
+}
