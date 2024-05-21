@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import guard from 'fastify-guard'
+
 import { logger } from "./logger";
 import { applicationRoutes } from "../modules/applications/applications.routes";
 import { usersRoutes } from "../modules/users/users.routes";
