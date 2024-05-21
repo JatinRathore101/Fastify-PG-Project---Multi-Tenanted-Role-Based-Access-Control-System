@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
-import { assignRoleToUserJsonSchema, createUserJsonSchema, loginJsonSchema } from "./users.schemas";
+import { AssignRoleToUserBody, assignRoleToUserJsonSchema, createUserJsonSchema, loginJsonSchema } from "./users.schemas";
 import { assignRoleToUserHandler, createUserHandler, loginHandler } from "./users.controllers";
+import { PERMISSIONS } from "../../config/permissions";
 
 export async function usersRoutes(app: FastifyInstance) {
 
@@ -13,8 +14,9 @@ app.post("/login",{
     schema: loginJsonSchema,
 }, loginHandler);
 
-app.post('/roles',{
+app.post<{Body: AssignRoleToUserBody}>('/roles',{
     schema: assignRoleToUserJsonSchema,
+    preHandler:[app.guard.scope(PERMISSIONS['users:roles:write'])]
 }, 
 assignRoleToUserHandler);
     
